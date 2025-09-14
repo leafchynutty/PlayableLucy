@@ -18,7 +18,7 @@ class PutMeInFreeplayModule extends Module {
 	override function onStateChangeEnd() {
 		super.onStateChangeEnd();
 
-		if (!ModuleHandler.getModule("DebugToolManager").getToolEnabled(this.moduleId.toLowerCase())) return;
+		if (!ModuleHandler.getModule("DebugToolManager").getToolEnabled(this.moduleId)) return;
 		if (PlayState.instance == null) return;
 
 		var targetState:StickerSubState->FlxState = (sticker) -> FreeplayState.build(sticker);
