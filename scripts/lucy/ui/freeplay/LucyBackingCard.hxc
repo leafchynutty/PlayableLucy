@@ -102,9 +102,9 @@ class LucyBackingCard extends BackingCard
     confirmGlow2.visible = false;
 
     confirmGlow.loadGraphic(Paths.image('freeplay/lucy/confirmGlow-white'));
-    confirmGlow.color = 0x4D2432;
+    confirmGlow.color = 0xBE5B7C;
     confirmGlow2.loadGraphic(Paths.image('freeplay/lucy/confirmGlow2-white'));
-    confirmGlow2.color = 0x1E1122;
+    confirmGlow2.color = 0x734381;
 
     add(confirmGlow2);
     add(confirmGlow);
