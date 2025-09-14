@@ -231,7 +231,7 @@ class LucyBackingCard extends BackingCard
     for (text in showObjects)
     {
       FlxTween.cancelTweensOf(text);
-      FlxTween.color(text, 1, 0xFFFFD0D5, 0xFFFFFFFF, {ease: FlxEase.quadOut});
+      FlxTween.color(text, .33, 0xFF491F61, 0xFFFFD0D5, {ease: FlxEase.quadOut});
     }
   }
 
