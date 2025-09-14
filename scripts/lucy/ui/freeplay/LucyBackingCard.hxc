@@ -1,3 +1,4 @@
+import funkin.Paths;
 import funkin.ui.freeplay.BGScrollingText;
 import funkin.ui.freeplay.FreeplayState;
 import funkin.ui.freeplay.backcards.BackingCard;
@@ -99,6 +100,11 @@ class LucyBackingCard extends BackingCard
 
     confirmGlow.visible = false;
     confirmGlow2.visible = false;
+
+    confirmGlow.loadGraphic(Paths.image('freeplay/lucy/confirmGlow-white'));
+    confirmGlow.color = 0xFFFFFF;
+    confirmGlow2.loadGraphic(Paths.image('freeplay/lucy/confirmGlow2-white'));
+    confirmGlow2.color = 0xFFFFFF;
 
     add(confirmGlow2);
     add(confirmGlow);
