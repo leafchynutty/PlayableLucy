@@ -197,6 +197,9 @@ class LucyBackingCard extends BackingCard
   {
     super.confirm();
 
+    FlxTween.cancelTweensOf(pinkBack);
+    FlxTween.color(pinkBack, 0.33, 0xFFFFD0D5, 0xFF491F61, {ease: FlxEase.quadOut});
+
     whoIsIt2.visible = false;
     whoIsIt.visible = false;
     lucyLucyLucy.visible = false;
