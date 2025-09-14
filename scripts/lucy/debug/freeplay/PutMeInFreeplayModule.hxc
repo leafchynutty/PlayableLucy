@@ -1,5 +1,6 @@
 import funkin.ui.freeplay.FreeplayState;
 import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
 import funkin.ui.transition.stickers.StickerSubState;
 import funkin.play.PlayState;
 import funkin.util.Constants;
@@ -8,8 +9,6 @@ import funkin.data.freeplay.player.PlayerRegistry;
 import flixel.FlxG;
 
 class PutMeInFreeplayModule extends Module {
-	public var enabled:Bool = true;
-
 	public function new() {
 		super("PutMeInFreeplayModule", {
 			state: PlayState
@@ -19,6 +18,7 @@ class PutMeInFreeplayModule extends Module {
 	override function onStateChangeEnd() {
 		super.onStateChangeEnd();
 
+		if (!ModuleHandler.getModule("DebugToolManager").getToolEnabled(this.id.toLowerCase())) return;
 		if (PlayState.instance == null) return;
 
 		var targetState:StickerSubState->FlxState = (sticker) -> FreeplayState.build(sticker);
@@ -35,7 +35,6 @@ class PutMeInFreeplayModule extends Module {
 			}
 		}
 
-		if (enabled)
-			FlxG.state.openSubState(new StickerSubState({targetState: targetState, stickerPack: stickerPackId}));
+		FlxG.state.openSubState(new StickerSubState({targetState: targetState, stickerPack: stickerPackId}));
 	}
 }
