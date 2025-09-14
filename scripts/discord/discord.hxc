@@ -8,7 +8,7 @@ import funkin.Preferences;
 
 import funkin.play.PlayState;
 
-class discord extends discord
+class discord extends Module
 {
 
     override function onCreate(event):Void
@@ -18,10 +18,16 @@ class discord extends discord
 
     override function onSongLoaded(event):Void
     {
-        if (PlayState.currentChart?.opponent == 'lucy' || PlayState.currentChart?.player == 'lucy')
+        if (PlayState.instance == null) return;
+
+        var currentCharacterData:Null<SongCharacterData> = PlayState.instance.currentChart?.characters;
+
+        if (currentCharacterData.opponent == 'lucy' || currentCharacterData.player == 'lucy')
         {
-            PlayState.discordRPCAlbum = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Philips_PM5544.svg/330px-Philips_PM5544.svg.png'
+            PlayState.instance.discordRPCAlbum = 'https://i.imgur.com/0scMpkS.png';
         }
+
+        super.onSongLoaded(event);
     }
 
 }
