@@ -1,0 +1,27 @@
+import funkin.modding.module.Module;
+import funkin.modding.base.ScriptedMusicBeatSubState;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
+import funkin.modding.base.ScriptedMusicBeatState;
+import funkin.util.ReflectUtil;
+import flixel.FlxG;
+import funkin.Preferences;
+
+import funkin.play.PlayState;
+
+class discord extends discord
+{
+
+    override function onCreate(event):Void
+    {
+        super.onCreate(event);
+    }
+
+    override function onSongLoaded(event):Void
+    {
+        if (PlayState.currentChart?.opponent == 'lucy' || PlayState.currentChart?.player == 'lucy')
+        {
+            PlayState.discordRPCAlbum = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Philips_PM5544.svg/330px-Philips_PM5544.svg.png'
+        }
+    }
+
+}
