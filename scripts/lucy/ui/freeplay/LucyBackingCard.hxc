@@ -95,9 +95,6 @@ class LucyBackingCard extends BackingCard
     FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
     add(pinkBack);
 
-    confirmTextGlow.blend = 0;
-    confirmTextGlow.visible = false;
-
     confirmGlow.blend = 0;
 
     confirmGlow.visible = false;
@@ -105,10 +102,6 @@ class LucyBackingCard extends BackingCard
 
     add(confirmGlow2);
     add(confirmGlow);
-
-    add(confirmTextGlow);
-
-    add(backingTextYeah);
 
     cardGlow.blend = 0;
     cardGlow.visible = false;
