@@ -1,0 +1,31 @@
+import funkin.ui.freeplay.FreeplayState;
+import funkin.ui.freeplay.CapsuleOptionsMenu;
+import funkin.modding.module.Module;
+import funkin.util.ReflectUtil;
+import funkin.audio.FunkinSound;
+import flixel.util.FlxTimer;
+import flixel.FlxG;
+import StringTools;
+
+class UnofficialOSTText extends Module
+{
+  public function new()
+  {
+    super('UnofficialOSTText');
+  }
+
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+	super.onUpdate(event);
+
+    if (ReflectUtil.getClassNameOf(FlxG.state.subState) == "funkin.ui.freeplay.FreeplayState")
+    {   
+        if (FlxG.state.subState.currentCharacterId == 'lucy')
+        {
+            FlxG.state.subState.ostName.text = "LUCY SOUNDTRACK";
+            FlxG.state.subState.charSelectHint.size = 23;
+            // FlxG.state.subState.charSelectHint.x = -170;
+        }
+    }
+  }
+}

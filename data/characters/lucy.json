@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "name": "lucy",
+  "assetPath": "characters/lucy",
+  "startingAnimation": "idle",
+  "singTime": 4,
+  "flipX": true,
+  "isPixel": false,
+  "healthIcon": {
+    "id": "lucy"
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "idle",
+      "frameIndices": [],
+      "frameRate": 24,
+      "offsets": [
+        -37,
+        304
+      ],
+      "looped": false
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "left",
+      "frameIndices": [],
+      "frameRate": 24,
+      "offsets": [
+        42,
+        294
+      ],
+      "looped": false
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "down",
+      "frameIndices": [],
+      "frameRate": 24,
+      "offsets": [
+        -40,
+        265
+      ],
+      "looped": false
+    },
+    {
+      "name": "singUP",
+      "prefix": "up",
+      "frameIndices": [],
+      "frameRate": 24,
+      "offsets": [
+        -48,
+        335
+      ],
+      "looped": false
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "right",
+      "frameIndices": [],
+      "frameRate": 24,
+      "offsets": [
+        -54,
+        303
+      ],
+      "looped": false
+    }
+  ],
+  "offsets": [
+    -30,
+    160
+  ],
+  "cameraOffsets": [
+    -130,
+    -200
+  ],
+  "scale": 1
+}

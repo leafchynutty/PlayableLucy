@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="spritesheet.png">
+	<SubTexture name="idle0000" x="0" y="0" width="50" height="39" frameX="-4" frameY="-7" frameWidth="59" frameHeight="52" />
+	<SubTexture name="confirm0000" x="0" y="0" width="50" height="39" frameX="-4" frameY="-7" frameWidth="59" frameHeight="52" />
+	<SubTexture name="confirm0001" x="50" y="0" width="50" height="39" frameX="-4" frameY="-7" frameWidth="59" frameHeight="52" />
+	<SubTexture name="confirm0002" x="0" y="39" width="50" height="39" frameX="-4" frameY="-7" frameWidth="59" frameHeight="52" />
+	<SubTexture name="confirm0003" x="50" y="39" width="50" height="39" frameX="-4" frameY="-7" frameWidth="59" frameHeight="52" />
+	<SubTexture name="confirm-hold0000" x="50" y="39" width="50" height="39" frameX="-4" frameY="-7" frameWidth="59" frameHeight="52" />
+</TextureAtlas>

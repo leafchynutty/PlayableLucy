@@ -1,0 +1,223 @@
+import funkin.ui.freeplay.BGScrollingText;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.ui.freeplay.backcards.BackingCard;
+import flixel.FlxSprite;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxSpriteUtil;
+import funkin.ui.freeplay.charselect.PlayableCharacter;
+import funkin.data.freeplay.player.PlayerRegistry;
+import flixel.FlxG;
+import funkin.Conductor;
+
+class LucyBackingCard extends BackingCard
+{
+  public var whoIsIt2:BGScrollingText;
+  public var whoIsIt:BGScrollingText;
+  public var lucyLucyLucy:BGScrollingText;
+  public var itsLucyLucy:BGScrollingText;
+  public var itsLucyLucy2:BGScrollingText;
+  public var lucyLucyLucy2:BGScrollingText;
+
+  var glow:FlxSprite;
+  var glowDark:FlxSprite;
+
+  public override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
+  {
+    super.applyExitMovers(exitMovers, exitMoversCharSel);
+    if (exitMovers == null || exitMoversCharSel == null) return;
+    exitMovers.set([whoIsIt2],
+      {
+        x: FlxG.width * 2,
+        speed: 0.4,
+      });
+    exitMovers.set([whoIsIt],
+      {
+        x: -whoIsIt.width * 2,
+        y: whoIsIt.y,
+        speed: 0.4,
+        wait: 0
+      });
+    exitMovers.set([lucyLucyLucy],
+      {
+        x: FlxG.width * 2,
+        speed: 0.4,
+      });
+    exitMovers.set([itsLucyLucy],
+      {
+        x: -itsLucyLucy.width * 2,
+        speed: 0.5,
+      });
+    exitMovers.set([itsLucyLucy2],
+      {
+        x: FlxG.width * 2,
+        speed: 0.4
+      });
+    exitMovers.set([lucyLucyLucy2],
+      {
+        x: -lucyLucyLucy2.width * 2,
+        speed: 0.3
+      });
+
+    exitMoversCharSel.set([whoIsIt2, whoIsIt, lucyLucyLucy, itsLucyLucy, itsLucyLucy2, lucyLucyLucy2],
+      {
+        y: -60,
+        speed: 0.8,
+        wait: 0.1
+      });
+  }
+
+  public override function enterCharSel():Void
+  {
+    FlxTween.tween(whoIsIt, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(itsLucyLucy, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(whoIsIt2, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(itsLucyLucy2, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(lucyLucyLucy, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(lucyLucyLucy2, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
+  }
+
+  public override function new()
+  {
+    super("lucy");
+  }
+
+  public override function onCreate(event:ScriptEvent):Void
+  {
+    var player = PlayerRegistry.instance.fetchEntry(this.currentCharacter);
+    whoIsIt = new BGScrollingText(0, 160, player.getFreeplayDJText(1), FlxG.width / 2, false, 60);
+    itsLucyLucy = new BGScrollingText(0, whoIsIt.y + 60, player.getFreeplayDJText(2), FlxG.width / 2, false, 60);
+    whoIsIt2 = new BGScrollingText(0, itsLucyLucy.y + 60, player.getFreeplayDJText(1), FlxG.width, false, 43);
+    itsLucyLucy2 = new BGScrollingText(0, whoIsIt2.y + 60, player.getFreeplayDJText(2), FlxG.width, false, 43);
+    lucyLucyLucy = new BGScrollingText(0, itsLucyLucy2.y + 60, player.getFreeplayDJText(3), FlxG.width / 2, false, 43);
+    lucyLucyLucy2 = new BGScrollingText(0, lucyLucyLucy.y + 60, player.getFreeplayDJText(3), FlxG.width / 2, false, 43);
+
+    FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
+    add(pinkBack);
+
+    confirmTextGlow.blend = 0;
+    confirmTextGlow.visible = false;
+
+    confirmGlow.blend = 0;
+
+    confirmGlow.visible = false;
+    confirmGlow2.visible = false;
+
+    add(confirmGlow2);
+    add(confirmGlow);
+
+    add(confirmTextGlow);
+
+    add(backingTextYeah);
+
+    cardGlow.blend = 0;
+    cardGlow.visible = false;
+
+    whoIsIt2.visible = false;
+    whoIsIt.visible = false;
+    lucyLucyLucy.visible = false;
+    itsLucyLucy.visible = false;
+    itsLucyLucy2.visible = false;
+    lucyLucyLucy2.visible = false;
+
+    whoIsIt.funnyColor = 0xFFB688BA;
+    whoIsIt.speed = -3.8;
+    add(whoIsIt);
+    
+    whoIsIt2.funnyColor = whoIsIt.funnyColor;
+    whoIsIt2.speed = whoIsIt.speed;
+    add(whoIsIt2);
+
+    // itsLucyLucy.funnyColor = 0xFF281D3D;
+    itsLucyLucy.speed = -3.8;
+    add(itsLucyLucy);
+
+    itsLucyLucy2.funnyColor = itsLucyLucy.funnyColor;
+    itsLucyLucy2.speed = itsLucyLucy.speed;
+    add(itsLucyLucy2);
+
+    lucyLucyLucy.funnyColor = 0xFF644C79;
+    lucyLucyLucy.speed = 3.5;
+    add(lucyLucyLucy);
+
+    lucyLucyLucy2.funnyColor = lucyLucyLucy.funnyColor;
+    lucyLucyLucy2.speed = lucyLucyLucy.speed;
+    add(lucyLucyLucy2);
+
+    glowDark = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300, 330).loadGraphic(Paths.image('freeplay/beatglow'));
+    glowDark.blend = 9;
+    add(glowDark);
+
+    glow = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300, 330).loadGraphic(Paths.image('freeplay/beatglow'));
+    glow.blend = 0;
+    add(glow);
+
+    glowDark.visible = false;
+    glow.visible = false;
+
+    add(cardGlow);
+  }
+
+  var beatFreq:Int = 1;
+  var beatFreqList:Array<Int> = [1, 2, 4, 8];
+
+  public override function beatHit():Void
+  {
+    // increases the amount of beats that need to go by to pulse the glow because itd flash like craazy at high bpms.....
+    beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
+
+    if (Conductor.instance.currentBeat % beatFreq != 0) return;
+    FlxTween.cancelTweensOf(glow);
+    FlxTween.cancelTweensOf(glowDark);
+
+    glow.alpha = 0.8;
+    FlxTween.tween(glow, {alpha: 0}, 16 / 24, {ease: FlxEase.quartOut});
+    glowDark.alpha = 0;
+    FlxTween.tween(glowDark, {alpha: 0.6}, 18 / 24, {ease: FlxEase.quartOut});
+  }
+
+  public override function introDone():Void
+  {
+    super.introDone();
+    
+    pinkBack.color = 0xFF4B1C32;
+
+    whoIsIt2.visible = true;
+    whoIsIt.visible = true;
+    lucyLucyLucy.visible = true;
+    itsLucyLucy.visible = true;
+    itsLucyLucy2.visible = true;
+    lucyLucyLucy2.visible = true;
+    // grpTxtScrolls.visible = true;
+    glowDark.visible = true;
+    glow.visible = true;
+  }
+
+  public override function confirm():Void
+  {
+    super.confirm();
+
+    whoIsIt2.visible = false;
+    whoIsIt.visible = false;
+    lucyLucyLucy.visible = false;
+    itsLucyLucy.visible = false;
+    itsLucyLucy2.visible = false;
+    lucyLucyLucy2.visible = false;
+    glowDark.visible = false;
+    glow.visible = false;
+  }
+
+  public override function disappear():Void
+  {
+    super.disappear();
+
+    whoIsIt2.visible = false;
+    whoIsIt.visible = false;
+    lucyLucyLucy.visible = false;
+    itsLucyLucy.visible = false;
+    itsLucyLucy2.visible = false;
+    lucyLucyLucy2.visible = false;
+    glowDark.visible = false;
+    glow.visible = false;
+  }
+}
