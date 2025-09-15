@@ -14,10 +14,10 @@ class SoundTest extends Song
                 super.onNoteHit(event);
                 if (PlayState.instance.currentStage == null)
                         return;
+                PlayState.instance.vocals.opponentVolume = 0;
                 if (!event.note.noteData.getMustHitNote())
                 {
                         event.cancelEvent();
-                        PlayState.instance.vocals.opponentVolume = 0;
                 }
         }
 }
