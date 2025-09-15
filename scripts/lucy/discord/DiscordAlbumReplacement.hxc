@@ -1,5 +1,5 @@
 import funkin.modding.module.Module;
-import funkin.data.song.SongData;
+import funkin.data.song.SongCharacterData;
 import funkin.play.PlayState;
 
 class DiscordAlbumReplacement extends Module
