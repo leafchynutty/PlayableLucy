@@ -9,9 +9,24 @@ class SoundTest extends Song
                 super('sound-test');
         }
 
+        
+	public function onCountdownStart(event:CountdownScriptEvent) {
+		super.onCountdownStart(event);
+                if (PlayState.instance == null)
+                        return;
+                if (PlayState.instance.currentStage == null)
+                        return;
+                if (PlayState.instance.currentStage.getDad() == null)
+                        return;
+
+                PlayState.instance.currentStage.getDad().visible = false;
+        }
+
         function onNoteHit(event:HitNoteScriptEvent)
         {
                 super.onNoteHit(event);
+                if (PlayState.instance == null)
+                        return;
                 if (PlayState.instance.currentStage == null)
                         return;
                 PlayState.instance.vocals.opponentVolume = 0;
