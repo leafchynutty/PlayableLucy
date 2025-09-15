@@ -1,21 +1,9 @@
 import funkin.modding.module.Module;
-import funkin.modding.base.ScriptedMusicBeatSubState;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.modding.base.ScriptedMusicBeatState;
-import funkin.util.ReflectUtil;
-import flixel.FlxG;
-import funkin.Preferences;
-
+import funkin.data.song.SongData;
 import funkin.play.PlayState;
 
-class discord extends Module
+class DiscordAlbumReplacement extends Module
 {
-
-    override function onCreate(event):Void
-    {
-        super.onCreate(event);
-    }
-
     override function onSongLoaded(event):Void
     {
         if (PlayState.instance == null) return;
