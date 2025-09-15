@@ -74,24 +74,7 @@ class LucyCameraStartingPositions extends Module {
 			if (bfPoint == null)
 				return;
 
-			if (cameraSetter == null) {
-				setCameraPosition(bfPoint.x, bfPoint.y, ((reset) ? 1 : 0), FlxEase.sineInOut);
-			} else {
-				cameraSetter.SETTINGS = {
-					position: {
-						x: bfPoint.x,
-						y: bfPoint.y,
-						ease: FlxEase.sineInOut,
-						time: ((reset) ? 1.0 : 0.0)
-					},
-					zoom: {
-						zoom: 1.0,
-						time: 0,
-						ease: FlxEase.sineInOut,
-						direct: false
-					}
-				};
-			}
+			setCameraPosition(bfPoint.x, bfPoint.y, ((reset) ? 1 : 0), FlxEase.sineInOut);
 		}
 
 		if (songName == "Bopeebo" && songVariation == "lucy") {
@@ -99,25 +82,8 @@ class LucyCameraStartingPositions extends Module {
 			if (bfPoint == null)
 				return;
 
-			if (cameraSetter == null) {
-				setCameraPosition(bfPoint.x + 150, bfPoint.y, ((reset) ? 1 : 0), FlxEase.sineInOut);
-				setCameraZoom(1.5, ((reset) ? 1 : 0), FlxEase.sineInOut, true);
-			} else {
-				cameraSetter.SETTINGS = {
-					position: {
-						x: bfPoint.x + 150,
-						y: bfPoint.y,
-						ease: FlxEase.sineInOut,
-						time: ((reset) ? 1.0 : 0.0)
-					},
-					zoom: {
-						zoom: 1.5,
-						time: ((reset) ? 1.0 : 0.0),
-						ease: FlxEase.sineInOut,
-						direct: true
-					}
-				};
-			}
+			setCameraPosition(bfPoint.x + 150, bfPoint.y, ((reset) ? 1 : 0), FlxEase.sineInOut);
+			setCameraZoom(1.5, ((reset) ? 1 : 0), FlxEase.sineInOut, true);
 		}
 
 		if (reset == null || reset)
