@@ -2,7 +2,7 @@
   "version": "2.2.4",
   "songName": "Bopeebo (Lucy Mix)",
   "artist": "Ikak",
-    "charter": "Leafchy",
+  "charter": "Leafchy",
   "divisions": 96,
   "looped": false,
   "offsets": {
@@ -14,11 +14,13 @@
   "playData": {
     "songVariations": [    ],
     "difficulties": [
+      "easy",
+      "normal",
       "hard"
     ],
     "characters": {
       "player": "lucy",
-      "girlfriend": "gf",
+      "girlfriend": "",
       "opponent": "dad",
       "instrumental": "lucy",
       "altInstrumentals": [      ],
@@ -32,15 +34,15 @@
     "stage": "mainStageErect",
     "noteStyle": "funkin",
     "ratings": {
-      "easy": 1,
+      "easy": 2,
       "normal": 2,
-      "hard": 3
+      "hard": 4
     },
     "album": "lucyextrasvol1",
     "previewStart": 0,
     "previewEnd": 0
   },
-  "generatedBy": "Friday Night Funkin' - v0.6.3",
+  "generatedBy": "Friday Night Funkin' - v0.7.4",
   "timeFormat": "ms",
   "timeChanges": [
     {
