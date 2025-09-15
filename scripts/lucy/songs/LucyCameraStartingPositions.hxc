@@ -67,6 +67,33 @@ class LucyCameraStartingPositions extends Module {
 			cameraSetter.SETTINGS = null;
 		}
 
+		if (songName == "Sound Test" && songVariation == "default")
+		{
+			trace("Sound Test");
+
+			if (bfPoint == null)
+				return;
+
+			if (cameraSetter == null) {
+				setCameraPosition(bfPoint.x, bfPoint.y, ((reset) ? 1 : 0), FlxEase.sineInOut);
+			} else {
+				cameraSetter.SETTINGS = {
+					position: {
+						x: bfPoint.x,
+						y: bfPoint.y,
+						ease: FlxEase.sineInOut,
+						time: ((reset) ? 1.0 : 0.0)
+					},
+					zoom: {
+						zoom: 1.0,
+						time: 0,
+						ease: FlxEase.sineInOut,
+						direct: false
+					}
+				};
+			}
+		}
+
 		if (songName == "Bopeebo" && songVariation == "lucy") {
 			trace("Bopeebo (Lucy Mix)");
 			if (bfPoint == null)
