@@ -7,11 +7,11 @@ import flixel.util.FlxTimer;
 import flixel.FlxG;
 import StringTools;
 
-class UnofficialOSTText extends Module
+class OSTText extends Module
 {
   public function new()
   {
-    super('UnofficialOSTText');
+    super('OSTText');
   }
 
   override function onUpdate(event:UpdateScriptEvent)
