@@ -1,0 +1,110 @@
+import flixel.tweens.FlxEase;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.Countdown;
+import funkin.play.CountdownStep;
+
+class LucyCameraStartingPositions extends Module {
+	var songString:String;
+	var currentStage:Null<Stage>;
+
+	var reset = false;
+
+	public function new() {
+		super("LucyCameraStartingPositions", {
+			state: PlayState
+		});
+	}
+
+	public function onCountdownStep(event:CountdownScriptEvent) {
+		super.onCountdownStep(event);
+
+		switch (songString) {
+		}
+	}
+
+	public function onSongRetry(event:SongRetryEvent) {
+		super.onSongRetry(event);
+		reset = true;
+	}
+
+	public function onCountdownStart(event:CountdownScriptEvent) {
+		super.onCountdownStart(event);
+		songString = null;
+		currentStage = null;
+
+		if (PlayState.instance == null)
+			return;
+		currentStage = PlayState.instance.currentStage;
+
+		var songName = PlayState.instance.currentSong.songName;
+		var songVariation = PlayState.instance.currentVariation;
+		songString = songName + "-" + songVariation;
+		songString = songString.toLowerCase();
+
+		var settings = {
+			position: {
+				x: null,
+				y: null,
+				ease: FlxEase.sineInOut,
+				time: 1.0
+			},
+			zoom: {
+				zoom: 1.0,
+				time: 1.0,
+				ease: FlxEase.sineInOut,
+				direct: false
+			}
+		};
+
+		if (currentStage.getDad() == null) return;
+		if (currentStage.getBoyfriend() == null) return;
+
+		var gfPoint = null;
+		var dadPoint = null;
+		var bfPoint = null;
+
+		if (currentStage.getGirlfriend() != null)
+			gfPoint = currentStage.getGirlfriend().cameraFocusPoint;
+		if (currentStage.getDad() != null)
+			dadPoint = currentStage.getDad().cameraFocusPoint;
+		if (currentStage.getBoyfriend() != null)
+			bfPoint = currentStage.getBoyfriend().cameraFocusPoint;
+
+		if (reset == false) {
+			trace('Did not come from a reset');
+			settings.position.time = 0;
+			settings.zoom.time = 0;
+		}
+
+		switch (songString) {
+			default:
+				trace("Song( " + songString + " ) does not have camera settings set.");
+		}
+
+		setCameraPosition(settings.position.x, settings.position.y, settings.position.time, settings.position.ease);
+		setCameraZoom(settings.zoom.zoom, settings.zoom.time, settings.zoom.ease, settings.zoom.direct);
+
+		if (reset == null || reset)
+			reset = false;
+	}
+
+	function setCameraPosition(x:Float = 0, y:Float = 0, time:Float = 0, ease:FlxEase = FlxEase.linear) {
+		if (!ModuleHandler.getModule("sscs-save-module").getEnabled())
+			return;
+
+		PlayState.instance.tweenCameraToPosition((x ?? PlayState.instance.currentStage.getDad().cameraFocusPoint.x),(y ?? PlayState.instance.currentStage.getDad().cameraFocusPoint.y), time, (ease ?? FlxEase.linear));
+	}
+
+	
+	function setCameraZoom(zoom:Float = 1, time:Float = 0, ease:FlxEase = FlxEase.linear, direct:Bool = true) {
+		// direct == true: Set zoom directly.
+		// direct == false: Set zoom as a multiplier of the current stage's default zoom.
+
+		if (!ModuleHandler.getModule("sscs-save-module").getEnabled())
+			return;
+		PlayState.instance.tweenCameraZoom(zoom, time, direct, (ease ?? FlxEase.linear));
+	}
+}
