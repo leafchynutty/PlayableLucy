@@ -1,0 +1,20 @@
+import funkin.modding.module.Module;
+
+class DebugToolManager extends Module
+{
+        public var tools = [
+                "PutMeInFreeplayModule" => true
+        ];
+
+        public function new() {
+                super("DebugToolManager");
+        }
+
+        public function getToolEnabled(tool:String):Bool
+        {
+                if (tools.exists(tool))
+                        return tools.get(tool);
+
+                return false;
+        }
+}
