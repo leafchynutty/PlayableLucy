@@ -1,0 +1,23 @@
+import funkin.play.PlayState;
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class SoundTest extends Song
+{
+        public function new()
+        {
+                super('sound-test');
+        }
+
+        function onNoteHit(event:HitNoteScriptEvent)
+        {
+                super.onNoteHit(event);
+                if (PlayState.instance.currentStage == null)
+                        return;
+                if (!event.note.noteData.getMustHitNote())
+                {
+                        event.cancelEvent();
+                        PlayState.instance.vocals.opponentVolume = 0;
+                }
+        }
+}
