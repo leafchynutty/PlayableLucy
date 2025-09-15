@@ -26,7 +26,7 @@ class LucyCameraStartingPositions extends Module {
 		if (songName == "Bopeebo" && songVariation == "lucy")
 		{
 			if (event.step == CountdownStep.GO){
-				setCameraPosition(currentStage.getDad().x, currentStage.getDad().y, 1.0, FlxEase.sineInOut);
+				setCameraPosition(currentStage.getDad().cameraFocusPoint.x, currentStage.getDad().cameraFocusPoint.y, 1.0, FlxEase.sineInOut);
 				setCameraZoom(1.0, 1.0, FlxEase.sineInOut, false);
 			}
 		}
@@ -62,6 +62,10 @@ class LucyCameraStartingPositions extends Module {
 			bfPoint = currentStage.getBoyfriend().cameraFocusPoint;
 
 		var cameraSetter = ModuleHandler.getModule("sscs-camera-setter-module");
+		if (cameraSetter != null)
+		{
+			cameraSetter.SETTINGS = null;
+		}
 
 		if (songName == "Bopeebo" && songVariation == "lucy") {
 			trace("Bopeebo (Lucy Mix)");
