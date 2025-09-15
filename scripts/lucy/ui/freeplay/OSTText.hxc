@@ -16,14 +16,14 @@ class OSTText extends Module
 
   override function onUpdate(event:UpdateScriptEvent)
   {
-	super.onUpdate(event);
+    super.onUpdate(event);
 
     if (ReflectUtil.getClassNameOf(FlxG.state.subState) == "funkin.ui.freeplay.FreeplayState")
     {   
         if (FlxG.state.subState.currentCharacterId == 'lucy')
         {
-            FlxG.state.subState.ostName.text = "LUCY SOUNDTRACK";
-            FlxG.state.subState.charSelectHint.size = 23;
+            FlxG.state.subState.ostName.text = "LUCY OST";
+            // FlxG.state.subState.charSelectHint.size = 23;
             // FlxG.state.subState.charSelectHint.x = -170;
         }
     }
