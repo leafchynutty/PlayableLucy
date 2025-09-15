@@ -14,8 +14,9 @@
   "playData": {
     "songVariations": [    ],
     "difficulties": [
-      "hard",
-      "normal"
+      "easy",
+      "normal",
+      "hard"
     ],
     "characters": {
       "player": "lucy",
@@ -33,14 +34,15 @@
     "stage": "mainStageErect",
     "noteStyle": "funkin",
     "ratings": {
-      "hard": 0,
-      "normal": 0
+      "easy": 3,
+      "hard": 5,
+      "normal": 4
     },
-	"album": "lucyextrasvol1",
+    "album": "lucyextrasvol1",
     "previewStart": 0,
     "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.6.3",
+  "generatedBy": "Friday Night Funkin' - v0.7.4",
   "timeFormat": "ms",
   "timeChanges": [
     {
