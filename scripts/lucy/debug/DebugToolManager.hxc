@@ -3,7 +3,7 @@ import funkin.modding.module.Module;
 class DebugToolManager extends Module
 {
         public var tools = [
-                "PutMeInFreeplayModule" => true
+                "PutMeInFreeplayModule" => false
         ];
 
         public function new() {
