@@ -1,0 +1,164 @@
+{
+  "version": "1.0.2",
+  "name": "Street Flower",
+  "props": [
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "streetflower/atmosphere",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "atmosphere",
+      "position": [
+        -487,
+        -515
+      ],
+      "scale": 0.75,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": "",
+      "zIndex": 0
+    },
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "streetflower/tree",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "trees",
+      "position": [
+        -483,
+        -497
+      ],
+      "scale": 0.75,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": "",
+      "zIndex": 1
+    },
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "streetflower/street",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "street",
+      "position": [
+        -488,
+        -515
+      ],
+      "scale": 0.75,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": "",
+      "zIndex": 2
+    },
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "streetflower/light",
+      "blend": "screen",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "light",
+      "position": [
+        -497,
+        -512
+      ],
+      "scale": 0.75,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": "",
+      "zIndex": 4
+    }
+  ],
+  "characters": {
+    "bf": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        -100,
+        -100
+      ],
+      "position": [
+        1176.95,
+        722.8
+      ],
+      "scale": 0.9,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 300
+    },
+    "dad": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        150,
+        -100
+      ],
+      "position": [
+        478.5,
+        738
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 200
+    },
+    "gf": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        0,
+        0
+      ],
+      "position": [
+        825.35,
+        617.2
+      ],
+      "scale": 0.9,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 100
+    }
+  },
+  "cameraZoom": 0.75,
+  "directory": "shared"
+}
