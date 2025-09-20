@@ -20,7 +20,6 @@ class StreetFlowerStage extends Stage
 
   var colorShaderBf:AdjustColorShader;
   var colorShaderDad:AdjustColorShader;
-  var colorShaderGf:AdjustColorShader;
   
   function buildStage()
   {
@@ -28,21 +27,15 @@ class StreetFlowerStage extends Stage
 
     colorShaderBf = new AdjustColorShader();
     colorShaderDad = new AdjustColorShader();
-    colorShaderGf = new AdjustColorShader();
 
-    colorShaderBf.brightness = -23;
-    colorShaderBf.hue = 12;
-    colorShaderBf.contrast = 7;
+    colorShaderBf.brightness = 0;
+    colorShaderBf.hue = 0;
+    colorShaderBf.contrast = 0;
     colorShaderBf.saturation = 0;
 
-    colorShaderGf.brightness = -30;
-    colorShaderGf.hue = -9;
-    colorShaderGf.contrast = -4;
-    colorShaderGf.saturation = 0;
-
-    colorShaderDad.brightness = -33;
-    colorShaderDad.hue = -32;
-    colorShaderDad.contrast = -23;
+    colorShaderDad.brightness = 0;
+    colorShaderDad.hue = 0;
+    colorShaderDad.contrast = 0;
     colorShaderDad.saturation = 0;
   }
 
@@ -57,8 +50,6 @@ class StreetFlowerStage extends Stage
         character.shader = colorShaderBf;
       case CharacterType.DAD:
         character.shader = colorShaderDad;
-      case CharacterType.GF:
-        character.shader = colorShaderGf;
     }
   }
 }
