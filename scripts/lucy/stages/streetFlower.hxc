@@ -29,7 +29,7 @@ class StreetFlowerStage extends Stage
     colorShaderDad = new AdjustColorShader();
 
     colorShaderBf.brightness = 0;
-    colorShaderBf.hue = 0;
+    colorShaderBf.hue = 300;
     colorShaderBf.contrast = 0;
     colorShaderBf.saturation = 0;
 
