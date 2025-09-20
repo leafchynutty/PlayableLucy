@@ -18,6 +18,8 @@ class SoundTest extends Song
                         return;
                 if (PlayState.instance.currentStage.getDad() == null)
                         return;
+                if (PlayState.instance.currentStage.stageName == "Street Flower")
+                        return;
 
                 PlayState.instance.currentStage.getDad().visible = false;
         }
@@ -29,6 +31,9 @@ class SoundTest extends Song
                         return;
                 if (PlayState.instance.currentStage == null)
                         return;
+                if (PlayState.instance.currentStage.stageName == "Street Flower")
+                        return;
+
                 PlayState.instance.vocals.opponentVolume = 0;
                 if (!event.note.noteData.getMustHitNote())
                 {
