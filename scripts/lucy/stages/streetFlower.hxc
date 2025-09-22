@@ -10,6 +10,7 @@ import funkin.play.stage.Stage;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.play.character.CharacterType;
+import funkin.graphics.shaders.DropShadowShader;
 
 class StreetFlowerStage extends Stage
 {
@@ -17,39 +18,63 @@ class StreetFlowerStage extends Stage
   {
     super('streetFlower');
   }
-
-  var colorShaderBf:AdjustColorShader;
-  var colorShaderDad:AdjustColorShader;
   
   function buildStage()
   {
     super.buildStage();
-
-    colorShaderBf = new AdjustColorShader();
-    colorShaderDad = new AdjustColorShader();
-
-    colorShaderBf.brightness = 0;
-    colorShaderBf.hue = 0;
-    colorShaderBf.contrast = 0;
-    colorShaderBf.saturation = 0;
-
-    colorShaderDad.brightness = 0;
-    colorShaderDad.hue = 0;
-    colorShaderDad.contrast = 0;
-    colorShaderDad.saturation = 0;
   }
+
+  var stageRim:DropShadowShader;
 
    override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
   {
     // Apply the shader automatically to each character as it gets added.
     super.addCharacter(character, charType);
     trace('Applied stage shader to ' + character.characterName);
+
+    var rim = new DropShadowShader();
+    rim.setAdjustColor(-46, -12, -25, -20);
+    rim.color = 0xFFC7EE;
+    character.shader = rim;
+    rim.attachedSprite = character;
+
     switch (charType)
     {
       case CharacterType.BF:
-        character.shader = colorShaderBf;
+        rim.angle = -45;
+        rim.distance = 0;
+
+        character.animation.onFrameChange.add(function() {
+          if (getBoyfriend() != null)
+          {
+            rim.updateFrameInfo(getBoyfriend().frame);
+          }
+        });
+
       case CharacterType.DAD:
-        character.shader = colorShaderDad;
+        rim.angle = 185;
+        rim.threshold = 0.1;
+
+        character.animation.onFrameChange.add(function() {
+          rim.updateFrameInfo(getDad().frame);
+        });
+
+        if (getDad().characterId == 'tankman-bloody')
+        {
+          rim.loadAltMask('assets/week7/images/erect/masks/tankmanCaptainBloody_mask.png');
+          rim.maskThreshold = 1;
+          rim.useAltMask = false;
+        }
+
+        // need to save this for later for when the mask is needed
+        stageRim = rim;
+
+      default:
     }
+  }
+
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
   }
 }
